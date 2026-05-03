@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Simples</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .calc {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    input {
+      width: 80px;
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calc">
+    <h1>Calculadora</h1>
+
+    <input type="number" id="n1" placeholder="Número 1">
+    <input type="number" id="n2" placeholder="Número 2">
+
+    <br>
+
+    <button onclick="somar()">+</button>
+    <button onclick="subtrair()">-</button>
+    <button onclick="multiplicar()">*</button>
+    <button onclick="dividir()">/</button>
+
+    <div id="resultado">Resultado: </div>
+  </div>
+
+  <script>
+    function getValores() {
+      const n1 = parseFloat(document.getElementById("n1").value) || 0;
+      const n2 = parseFloat(document.getElementById("n2").value) || 0;
+      return { n1, n2 };
+    }
+
+    function somar() {
+      const { n1, n2 } = getValores();
+      document.getElementById("resultado").innerText = "Resultado: " + (n1 + n2);
+    }
+
+    function subtrair() {
+      const { n1, n2 } = getValores();
+      document.getElementById("resultado").innerText = "Resultado: " + (n1 - n2);
+    }
+
+    function multiplicar() {
+      const { n1, n2 } = getValores();
+      document.getElementById("resultado").innerText = "Resultado: " + (n1 * n2);
+    }
+
+    function dividir() {
+      const { n1, n2 } = getValores();
+      if (n2 === 0) {
+        document.getElementById("resultado").innerText = "Erro: divisão por zero";
+      } else {
+        document.getElementById("resultado").innerText = "Resultado: " + (n1 / n2);
+      }
+    }
+  </script>
+
+</body>
+</html>
