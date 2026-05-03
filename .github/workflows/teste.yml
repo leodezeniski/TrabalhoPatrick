@@ -1,0 +1,19 @@
+name: Teste Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  teste:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v3
+
+      - name: Ver arquivos
+        run: ls -la
+
+      - name: Teste simples
+        run: echo "Pipeline funcionando!"
